@@ -1,13 +1,15 @@
-FROM continuumio/miniconda3:4.6.14
+FROM continuumio/miniconda3:4.7.12
 
-RUN conda install --yes --freeze-installed \
+RUN conda install --yes \
     -c conda-forge \
+    python==3.8 \
     python-blosc \
     cytoolz \
-    dask==2.3.0 \
+    dask==2.12.0 \
+    lz4 \
     nomkl \
-    numpy==1.16.2 \
-    pandas==0.24.2 \
+    numpy==1.18.1 \
+    pandas==1.0.1 \
     tini==0.18.0 \
     && conda clean -tipsy \
     && find /opt/conda/ -type f,l -name '*.a' -delete \
